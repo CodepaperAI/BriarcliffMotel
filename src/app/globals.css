@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Public Sans", "Segoe UI", sans-serif;
+  --color-paper: #f2f6f1;
+  --color-paper-strong: #dfe9dc;
+  --color-sand: #e4d5bb;
+  --color-sand-deep: #d0b07a;
+  --color-accent: #d9a24a;
+  --color-accent-deep: #b27f2f;
+  --color-accent-soft: #f5e0b0;
+  --color-forest: #1c3f36;
+  --color-forest-deep: #163129;
+  --color-ink: #1f231f;
+  --color-ink-soft: #3a423a;
+  --color-muted: #505952;
+  --bg-gradient-start: #f8fbf6;
+  --bg-gradient-end: #f2f6f1;
+  --bg-halo: rgba(217, 162, 74, 0.18);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(242, 246, 241, 0.92);
+  --surface-glass-deep: rgba(248, 251, 246, 0.96);
+  --section-alt: transparent;
+  --pill-primary-bg: rgba(28, 63, 54, 0.94);
+  --pill-primary-text: #ffffff;
+}
+
+/* Dawn Brilliance — default, recommended (brighter forest editorial) */
+[data-theme="dawn-brilliance"] {
+  --color-paper: #f2f6f1;
+  --color-paper-strong: #dfe9dc;
+  --color-accent: #d9a24a;
+  --color-accent-deep: #b27f2f;
+  --color-accent-soft: #f5e0b0;
+  --color-ink-soft: #3a423a;
+  --color-muted: #505952;
+  --bg-gradient-start: #f8fbf6;
+  --bg-gradient-end: #f2f6f1;
+  --bg-halo: rgba(217, 162, 74, 0.18);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(242, 246, 241, 0.92);
+  --surface-glass-deep: rgba(248, 251, 246, 0.96);
+  --section-alt: transparent;
+}
+
+/* Dawn Mist — cooler, quieter forest-editorial alt */
+[data-theme="dawn-mist"] {
+  --color-paper: #edf0ec;
+  --color-paper-strong: #dfe6dd;
+  --color-accent: #cf9d4f;
+  --color-accent-soft: #f3dfb7;
+  --color-ink-soft: #3a423a;
+  --color-muted: #505952;
+  --bg-gradient-start: #f3f6f1;
+  --bg-gradient-end: #edf0ec;
+  --bg-halo: rgba(207, 157, 79, 0.14);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(237, 240, 236, 0.92);
+  --surface-glass-deep: rgba(243, 246, 241, 0.96);
+  --section-alt: transparent;
+}
+
+/* Pale Birch — warm minimalist ivory */
+[data-theme="pale-birch"] {
+  --color-paper: #fbfaf6;
+  --color-paper-strong: #f1ece1;
+  --color-accent: #bf8a3c;
+  --color-accent-deep: #9b6e2f;
+  --color-accent-soft: #efe1c0;
+  --color-ink-soft: #3a3a33;
+  --color-muted: #51504a;
+  --bg-gradient-start: #fdfcf9;
+  --bg-gradient-end: #f7f3ec;
+  --bg-halo: rgba(191, 138, 60, 0.12);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(251, 250, 246, 0.92);
+  --surface-glass-deep: rgba(253, 252, 249, 0.96);
+  --section-alt: transparent;
+}
+
+/* Ivory + Sage — alternating editorial rhythm */
+[data-theme="ivory-sage"] {
+  --color-paper: #fbfaf6;
+  --color-paper-strong: #e4ebe1;
+  --color-ink-soft: #3a423a;
+  --color-muted: #505952;
+  --bg-gradient-start: #fdfcf9;
+  --bg-gradient-end: #f7f5ee;
+  --bg-halo: rgba(207, 157, 79, 0.14);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(251, 250, 246, 0.92);
+  --surface-glass-deep: rgba(253, 252, 249, 0.96);
+  --section-alt: #e8ece6;
+}
+
+[data-theme="ivory-sage"] main > section:nth-of-type(even) {
+  background-color: var(--section-alt);
+}
+
+/* Autumn Ember — White Mountains fall foliage */
+[data-theme="autumn-ember"] {
+  --color-paper: #f4e7d4;
+  --color-paper-strong: #e8d2ad;
+  --color-sand: #e6c89a;
+  --color-sand-deep: #c99a5b;
+  --color-accent: #c9611b;
+  --color-accent-deep: #a2440d;
+  --color-accent-soft: #f2d5b0;
+  --color-ink: #3d2920;
+  --color-ink-soft: #4a3225;
+  --color-muted: #5a4434;
+  --bg-gradient-start: #faf0dd;
+  --bg-gradient-end: #f4e7d4;
+  --bg-halo: rgba(201, 97, 27, 0.14);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(244, 231, 212, 0.92);
+  --surface-glass-deep: rgba(250, 240, 221, 0.96);
+  --section-alt: transparent;
+}
+
+/* Alpine Dusk — mountain twilight in slate & brass */
+[data-theme="alpine-dusk"] {
+  --color-paper: #e8ecf0;
+  --color-paper-strong: #d4dbe2;
+  --color-sand: #d9cba9;
+  --color-sand-deep: #b8a479;
+  --color-accent: #b8923a;
+  --color-accent-deep: #96752a;
+  --color-accent-soft: #e8d9ac;
+  --color-forest: #1f2a3d;
+  --color-forest-deep: #152031;
+  --color-ink: #1f2a3d;
+  --color-ink-soft: #2e3b52;
+  --color-muted: #485672;
+  --bg-gradient-start: #eff2f5;
+  --bg-gradient-end: #e8ecf0;
+  --bg-halo: rgba(184, 146, 58, 0.13);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(232, 236, 240, 0.92);
+  --surface-glass-deep: rgba(239, 242, 245, 0.96);
+  --section-alt: transparent;
+}
+
+/* Copper Inn — warm boutique hotel */
+[data-theme="copper-inn"] {
+  --color-paper: #efe3d2;
+  --color-paper-strong: #dccab1;
+  --color-sand: #e4cfaa;
+  --color-sand-deep: #c6a476;
+  --color-accent: #b05a29;
+  --color-accent-deep: #8a4418;
+  --color-accent-soft: #ecc9a8;
+  --color-ink: #2b1f17;
+  --color-ink-soft: #3a2a1f;
+  --color-muted: #5a473a;
+  --bg-gradient-start: #f5ecdb;
+  --bg-gradient-end: #efe3d2;
+  --bg-halo: rgba(176, 90, 41, 0.14);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(239, 227, 210, 0.92);
+  --surface-glass-deep: rgba(245, 236, 219, 0.96);
+  --section-alt: transparent;
+}
+
+/* Terracotta Sunset — saturated warm orange, white cards on top */
+[data-theme="terracotta-sunset"] {
+  --color-paper: #f9ebdc;
+  --color-paper-strong: #f1d8bb;
+  --color-sand: #f1c39a;
+  --color-sand-deep: #c98357;
+  --color-accent: #7a2f1f;
+  --color-accent-deep: #5a1f10;
+  --color-accent-soft: #f2c8a7;
+  --color-ink: #3d1f14;
+  --color-ink-soft: #4a2818;
+  --color-muted: #5a3624;
+  --bg-gradient-start: #ecac87;
+  --bg-gradient-end: #e8a57e;
+  --bg-halo: rgba(122, 47, 31, 0.16);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(249, 235, 220, 0.92);
+  --surface-glass-deep: rgba(252, 242, 228, 0.96);
+  --section-alt: transparent;
+}
+
+/* Blush Rose — dusty pink romantic */
+[data-theme="blush-rose"] {
+  --color-paper: #f9e5d9;
+  --color-paper-strong: #f2d1bf;
+  --color-sand: #f2c4ae;
+  --color-sand-deep: #c88b74;
+  --color-accent: #8a3a3a;
+  --color-accent-deep: #681e1e;
+  --color-accent-soft: #f2c8c0;
+  --color-ink: #3a1f1f;
+  --color-ink-soft: #4a2828;
+  --color-muted: #5a3838;
+  --bg-gradient-start: #efd0c0;
+  --bg-gradient-end: #ecc9b7;
+  --bg-halo: rgba(138, 58, 58, 0.14);
+  --surface-card: #ffffff;
+  --surface-glass: rgba(249, 229, 217, 0.92);
+  --surface-glass-deep: rgba(252, 238, 229, 0.96);
+  --section-alt: transparent;
+}
+
+/* Forest Velvet — dominant green, cream text */
+[data-theme="forest-velvet"] {
+  --color-paper: #264b40;
+  --color-paper-strong: #2f5649;
+  --color-sand: #4e6c5f;
+  --color-sand-deep: #6e8878;
+  --color-accent: #e8b767;
+  --color-accent-deep: #c79a52;
+  --color-accent-soft: #4a3e26;
+  --color-forest: #f3efe3;
+  --color-forest-deep: #e4dcc8;
+  --color-ink: #f3efe3;
+  --color-ink-soft: #d4cec0;
+  --color-muted: #c2ccbf;
+  --bg-gradient-start: #234940;
+  --bg-gradient-end: #1c4236;
+  --bg-halo: rgba(232, 183, 103, 0.18);
+  --surface-card: #264b40;
+  --surface-glass: rgba(30, 66, 55, 0.88);
+  --surface-glass-deep: rgba(36, 76, 64, 0.96);
+  --section-alt: transparent;
+}
+
+[data-theme="forest-velvet"] {
+  --pill-primary-bg: rgba(232, 183, 103, 0.95);
+  --pill-primary-text: #1c2521;
+}
+
+[data-theme="forest-velvet"] ::selection {
+  background: rgba(232, 183, 103, 0.3);
+}
+
+/* Cabernet — deep wine burgundy, cream text */
+[data-theme="cabernet"] {
+  --color-paper: #5a2832;
+  --color-paper-strong: #6a333f;
+  --color-sand: #8a4a52;
+  --color-sand-deep: #a0666d;
+  --color-accent: #d4a85a;
+  --color-accent-deep: #b08840;
+  --color-accent-soft: #3d2a1c;
+  --color-forest: #f3e8d4;
+  --color-forest-deep: #e8d9bf;
+  --color-ink: #f3e8d4;
+  --color-ink-soft: #dccfbb;
+  --color-muted: #c8b7a8;
+  --bg-gradient-start: #52232b;
+  --bg-gradient-end: #4a1e26;
+  --bg-halo: rgba(212, 168, 90, 0.16);
+  --surface-card: #5a2832;
+  --surface-glass: rgba(74, 30, 38, 0.88);
+  --surface-glass-deep: rgba(82, 35, 43, 0.96);
+  --section-alt: transparent;
+}
+
+[data-theme="cabernet"] {
+  --pill-primary-bg: rgba(212, 168, 90, 0.95);
+  --pill-primary-text: #2a1216;
+}
+
+[data-theme="cabernet"] ::selection {
+  background: rgba(212, 168, 90, 0.3);
+}
+
+/* Midnight Lodge — dramatic dark mode */
+[data-theme="midnight-lodge"] {
+  --color-paper: #141d19;
+  --color-paper-strong: #1d2824;
+  --color-accent: #e8b767;
+  --color-accent-deep: #d39a42;
+  --color-accent-soft: #4a3b21;
+  --color-forest: #9cc2b5;
+  --color-forest-deep: #7ba99b;
+  --color-ink: #eae4d6;
+  --color-ink-soft: #d0cbc0;
+  --color-muted: #b8bfb4;
+  --bg-gradient-start: #131a17;
+  --bg-gradient-end: #0e1512;
+  --bg-halo: rgba(232, 183, 103, 0.16);
+  --surface-card: #1a231f;
+  --surface-glass: rgba(20, 29, 25, 0.88);
+  --surface-glass-deep: rgba(26, 35, 31, 0.96);
+  --section-alt: transparent;
+}
+
+[data-theme="midnight-lodge"] {
+  --pill-primary-bg: rgba(232, 183, 103, 0.95);
+  --pill-primary-text: #0e1512;
+}
+
+[data-theme="midnight-lodge"] ::selection {
+  background: rgba(232, 183, 103, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, var(--bg-halo), transparent 32%),
+    linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--color-ink);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.045;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12  0 0 0 0 0.13  0 0 0 0 0.11  0 0 0 0.85 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-accent) 50%, transparent);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-accent-deep) 75%, transparent);
+  background-clip: padding-box;
+}
+
+html {
+  scrollbar-color: color-mix(in srgb, var(--color-accent) 50%, transparent) transparent;
+  scrollbar-width: thin;
+}
+
+::selection {
+  background: rgba(28, 63, 54, 0.2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

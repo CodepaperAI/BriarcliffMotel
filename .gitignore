@@ -1,0 +1,68 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# build output
+.next/
+out/
+dist/
+build/
+
+# TypeScript build cache
+*.tsbuildinfo
+next-env.d.ts
+
+# testing / coverage
+coverage/
+*.lcov
+
+# environment files (keep .env.example tracked)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS artifacts
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Vercel
+.vercel
+
+# scratch / temp
+tmp/
+tmp-web/
+*.tmp
+
+# Claude Code artifacts (project-local only — skip if you want to track)
+.claude/
