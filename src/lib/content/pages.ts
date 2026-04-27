@@ -22,10 +22,9 @@ export const homePage: HomePageContent = {
     imageId: "home-hero",
   },
   hero: {
-    eyebrow: "North Conway, New Hampshire",
-    title: "A renovated North Conway stay at the foot of the White Mountains",
-    description:
-      "Mountain-view rooms, a heated outdoor pool, and quick access to outlets, dining, and the ski resorts.",
+    eyebrow: "North Conway, NH",
+    title: "Welcome to the Briarcliff Motel in the White Mountains…",
+    description: "Your home away from home.",
     imageId: "home-hero",
     imageIds: [
       "home-hero",
@@ -40,15 +39,16 @@ export const homePage: HomePageContent = {
     ],
   },
   intro: {
-    eyebrow: "Why stay here",
-    title: "A quieter North Conway base, built for easy days out",
+    eyebrow: "Welcome",
+    title: "Your home away from home in North Conway",
     description:
-      "Clean, comfortable, family-friendly — and positioned for everything the Mt. Washington Valley is known for.",
+      "Located in the heart of North Conway, NH, we are conveniently located just a short distance from over 100 premium outlet stores. We are within a few minutes to great restaurants and ski areas, and centrally located to White Mountain attractions. We offer clean, comfortable, and always affordable lodging. Children are always welcome — our rooms are tastefully decorated and recently renovated. We look forward to meeting you and your family, and offer friendly advice to help make your stay here a memorable one.",
     bullets: [
-      "In the heart of North Conway and the Mt. Washington Valley",
-      "Recently renovated, family-friendly guest rooms",
-      "Minutes from outlet shopping, restaurants, ski areas, and attractions",
-      "Mountain views, outdoor heated pool, and porch-room options",
+      "Short distance from 100+ premium outlet stores",
+      "Minutes to great restaurants and ski areas",
+      "Centrally located to White Mountain attractions",
+      "Open 24/7 · front desk staffed 8 AM – 10 PM",
+      "Clean, comfortable, and always affordable — children welcome",
     ],
   },
   roomsPreview: {
@@ -143,9 +143,9 @@ export const detailPages: Record<string, DetailPageContent> = {
     },
     hero: {
       eyebrow: "Rooms & amenities",
-      title: "Comfortable rooms with mountain character",
+      title: "A heated pool in our private backyard",
       description:
-        "Non-smoking, recently renovated, with porch options and direct parking-lot access.",
+        "Beautiful White Mountains views — open every year, June 15 through Labor Day weekend.",
       imageId: "rooms-pool",
       imageIds: [
         "rooms-pool",
@@ -167,6 +167,18 @@ export const detailPages: Record<string, DetailPageContent> = {
     },
     splitSections: [
       {
+        eyebrow: "Heated outdoor pool",
+        title: "Private backyard pool with mountain views",
+        description:
+          "A heated pool tucked into our backyard, framed by the White Mountains. Open every year from June 15 through Labor Day weekend.",
+        bullets: [
+          "Tucked into our backyard",
+          "White Mountains views",
+          "Open June 15 – Labor Day weekend",
+        ],
+        imageId: "rooms-pool",
+      },
+      {
         eyebrow: "Room highlights",
         title: "Porches, mountain views, and larger baths in select rooms",
         description:
@@ -178,6 +190,7 @@ export const detailPages: Record<string, DetailPageContent> = {
           "Small table and chairs",
         ],
         imageId: "room-porch-view",
+        imageRight: true,
       },
       {
         eyebrow: "Renovated baths",
@@ -190,7 +203,6 @@ export const detailPages: Record<string, DetailPageContent> = {
           "Clean, bright finishes",
         ],
         imageId: "bathroom-2",
-        imageRight: true,
       },
     ],
     featureSections: [
@@ -279,9 +291,9 @@ export const detailPages: Record<string, DetailPageContent> = {
     },
     hero: {
       eyebrow: "Special packages",
-      title: "Real savings for value-minded stays",
+      title: "Special Packages",
       description:
-        "Seasonal offers, off-season value, a local dining discount, and shopping extras at the front desk.",
+        "We have seasonal packages available throughout the year. Please call to inquire about current promotions during your visit.",
       imageId: "specials-hero",
       imageIds: [
         "specials-hero",
@@ -297,9 +309,9 @@ export const detailPages: Record<string, DetailPageContent> = {
     },
     intro: {
       eyebrow: "Current offers",
-      title: "Four simple ways to save",
+      title: "Stay 2 nights — 3rd night free",
       description:
-        "No flash deals, no hidden bundles — just the offers we publish.",
+        "We have seasonal packages available throughout the year. Please call to inquire if there are any promotions going on during your visit.",
     },
     featureSections: [
       {
@@ -311,15 +323,15 @@ export const detailPages: Record<string, DetailPageContent> = {
     ],
     splitSections: [
       {
-        eyebrow: "Off-season value",
-        title: "Stay 2 nights, the 3rd is free",
+        eyebrow: "Featured offer",
+        title: "STAY 2 NIGHTS — 3rd NIGHT FREE",
         description:
-          "Off-season offer on two-queen rooms with a balcony, November through May — excluding holiday and vacation weeks.",
+          "Off season only with 2 queen beds and balcony. November through May (except holiday or vacation).",
         bullets: [
-          "Off-season only",
-          "Two queen beds with balcony",
-          "November through May",
-          "Excludes holiday and vacation weeks",
+          "Off season only",
+          "2 queen beds and balcony",
+          "Nov – May",
+          "Except holiday or vacation periods",
         ],
         imageId: "specials-hero",
       },
@@ -366,7 +378,7 @@ export const detailPages: Record<string, DetailPageContent> = {
       eyebrow: "About the area",
       title: "In the heart of the Mt. Washington Valley",
       description:
-        "Dining, shopping, family attractions, and four seasons of White Mountains recreation — all minutes from the front desk.",
+        "Briarcliff Motel is centrally located in the heart of the Mt. Washington Valley.",
       imageId: "area-hero",
       imageIds: [
         "area-hero",
@@ -381,10 +393,10 @@ export const detailPages: Record<string, DetailPageContent> = {
       ],
     },
     intro: {
-      eyebrow: "North Conway base camp",
-      title: "Everything connects here",
+      eyebrow: "Mt. Washington Valley",
+      title: "Centrally located in the heart of the Valley",
       description:
-        "Attractions, restaurants, shops, and mountain recreation — all reachable within a short drive.",
+        "Briarcliff Motel is centrally located in the heart of the Mt. Washington Valley — attractions, restaurants, shops, and four-season recreation are all within a short drive.",
     },
     featureSections: [
       {

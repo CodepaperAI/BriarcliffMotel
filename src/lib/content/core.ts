@@ -16,10 +16,8 @@ export const siteSettings = {
   gpsAddress: "2304 White Mountain Highway, North Conway, NH 03860",
   frontDesk: "1-603-356-5584",
   tollFree: "1-800-338-4291",
-  ownerDirect: "1-603-986-3658",
-  ownerDirectTelHref: "tel:+16039863658",
-  ownerDirectSmsHref: "sms:+16039863658",
   email: "info@briarcliffmotel.com",
+  access: "Open 24/7",
   officeHours: "8 AM-10 PM EST",
   lateArrival:
     "We will be more than happy to make special arrangements for your late arrival. Our office closes at 10:00 PM.",
@@ -388,7 +386,7 @@ export const roomFeatures: FeatureItem[] = [
 export const commonAreaAmenities: FeatureItem[] = [
   {
     title: "Heated outdoor pool",
-    description: "Backyard pool with White Mountains views — open June 15 through Labor Day.",
+    description: "Open June 15 through Labor Day weekend. Backyard pool with White Mountains views.",
     icon: "pool",
   },
   {
@@ -408,7 +406,7 @@ export const commonAreaAmenities: FeatureItem[] = [
   },
   {
     title: "Ice machine",
-    description: "In the common area.",
+    description: "Self-serve in the common area.",
     icon: "snow",
   },
   {
@@ -422,21 +420,35 @@ export const commonAreaAmenities: FeatureItem[] = [
     icon: "sparkles",
   },
   {
-    title: "Laundry facilities",
-    description: "Guest laundry on the property.",
+    title: "Coin-operated guest laundry",
+    description: "Self-serve guest laundry on-site (coin-operated).",
     icon: "washing",
   },
+];
+
+/**
+ * Curated subset of `commonAreaAmenities` for the home page amenities preview
+ * panel. Chosen to surface the four most decision-driving extras at a glance:
+ * heated pool (seasonal hook), free Wi-Fi, 24/7 ice machine, and 24/7 guest
+ * laundry. Mountain views and soda/microwave/ironing live further inside the
+ * rooms-amenities page so the home page stays focused.
+ */
+export const homeAmenityHighlights: FeatureItem[] = [
+  commonAreaAmenities[0], // Heated outdoor pool
+  commonAreaAmenities[2], // Free Wi-Fi
+  commonAreaAmenities[4], // Ice machine
+  commonAreaAmenities[7], // Coin-operated guest laundry
 ];
 
 export const packageHighlights: FeatureItem[] = [
   {
     title: "Seasonal packages",
-    description: "Rotating offers year-round — call the desk for what's active on your dates.",
+    description: "Available throughout the year. Call to inquire about current promotions during your visit.",
     icon: "ticket",
   },
   {
-    title: "Stay 2, get the 3rd free",
-    description: "Off-season, two-queen room with balcony, November through May (excludes holiday weeks).",
+    title: "Stay 2 nights — 3rd night free",
+    description: "Off season only with 2 queen beds and balcony. Nov – May (except holiday or vacation).",
     icon: "ticket",
   },
   {

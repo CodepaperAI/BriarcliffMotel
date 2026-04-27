@@ -36,8 +36,8 @@ import { MagneticButton } from "@/components/magnetic-button";
 import { MotionFeatures, Reveal, RevealChild, RevealStagger } from "@/components/reveal";
 import {
   BOOKING_URL,
-  commonAreaAmenities,
   footerLinks,
+  homeAmenityHighlights,
   imageManifest,
   roomFeatures,
   siteSettings,
@@ -186,7 +186,7 @@ export function SiteFooter() {
         <div className="space-y-3">
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/60">Visit</p>
           <p className="text-sm leading-7 text-white/85">{siteSettings.address}</p>
-          <p className="text-sm leading-7 text-white/85">Office Hours: {siteSettings.officeHours}</p>
+          <p className="text-sm leading-7 text-white/85">{siteSettings.access} · front desk {siteSettings.officeHours}</p>
         </div>
 
         <div className="space-y-3">
@@ -536,7 +536,7 @@ function CtaSection({
 export function HomeTemplate({ page }: { page: HomePageContent }) {
   const introImage = getImage("area-hero");
   const amenitiesImage = getImage("rooms-pool");
-  const amenityHighlights = commonAreaAmenities.slice(0, 4);
+  const amenityHighlights = homeAmenityHighlights;
 
   return (
     <>
@@ -572,7 +572,6 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
       </section>
 
       <FeatureStrip
-        index={1}
         eyebrow={page.roomsPreview.eyebrow}
         title={page.roomsPreview.title}
         description={page.roomsPreview.description}
@@ -601,9 +600,15 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
 
             <div className="relative flex flex-col justify-between gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
               <div className="space-y-5">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
-                  {page.amenitiesPreview.eyebrow}
-                </p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
+                    {page.amenitiesPreview.eyebrow}
+                  </p>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/55 bg-[var(--color-accent)]/18 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+                    <Waves className="h-3.5 w-3.5" />
+                    Pool season · Jun 15 – Labor Day
+                  </span>
+                </div>
                 <h2 className="font-[family-name:var(--font-display)] text-4xl leading-tight sm:text-5xl">
                   {page.amenitiesPreview.title}
                 </h2>
@@ -627,7 +632,6 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
       </section>
 
       <FeatureStrip
-        index={2}
         imageRight
         eyebrow={page.areaPreview.eyebrow}
         title={page.areaPreview.title}
@@ -642,7 +646,6 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
       />
 
       <FeatureStrip
-        index={3}
         eyebrow={page.packagesPreview.eyebrow}
         title={page.packagesPreview.title}
         description={page.packagesPreview.description}

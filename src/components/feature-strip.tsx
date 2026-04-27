@@ -16,14 +16,13 @@ type FeatureStripProps = {
   cards: FeatureStripCard[];
   action: { label: string; href: string; external?: boolean };
   imageRight?: boolean;
-  index: number;
 };
 
 /**
  * Full-bleed alternating preview strip for the home page. Replaces the 3-up
  * card teaser pattern with a single editorial row: large image on one side,
- * indexed number + eyebrow + title + description + 3 inline mini-entries on
- * the other. Rows alternate image-left and image-right based on imageRight.
+ * eyebrow + title + description + a clean list of mini-entries on the other.
+ * Rows alternate image-left and image-right based on imageRight.
  */
 export function FeatureStrip({
   eyebrow,
@@ -34,10 +33,7 @@ export function FeatureStrip({
   cards,
   action,
   imageRight,
-  index,
 }: FeatureStripProps) {
-  const indexLabel = String(index).padStart(2, "0");
-
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div
@@ -58,9 +54,6 @@ export function FeatureStrip({
             className="object-cover"
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(17,20,17,0.36)_100%)]" />
-          <span className="absolute left-6 top-6 font-[family-name:var(--font-display)] text-5xl leading-none text-white/85 sm:text-6xl">
-            {indexLabel}
-          </span>
         </Reveal>
 
         <RevealStagger className="space-y-7" stagger={0.09}>
@@ -80,24 +73,19 @@ export function FeatureStrip({
           </RevealChild>
 
           <RevealChild as="div">
-            <ol className="divide-y divide-[var(--color-ink)]/10 border-y border-[var(--color-ink)]/10">
-              {cards.map((card, cardIndex) => (
+            <ul className="divide-y divide-[var(--color-ink)]/10 border-y border-[var(--color-ink)]/10">
+              {cards.map((card) => (
                 <li
                   key={card.title}
-                  className="group grid grid-cols-[auto_1fr] items-baseline gap-5 py-5 transition-colors duration-500 hover:text-[var(--color-ink)]"
+                  className="group py-5 transition-colors duration-500 hover:text-[var(--color-ink)]"
                 >
-                  <span className="font-[family-name:var(--font-display)] text-sm tabular-nums text-[var(--color-accent-deep)]">
-                    0{cardIndex + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-[family-name:var(--font-display)] text-xl text-[var(--color-ink)]">
-                      {card.title}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink-soft)]">{card.description}</p>
-                  </div>
+                  <h3 className="font-[family-name:var(--font-display)] text-xl text-[var(--color-ink)]">
+                    {card.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-6 text-[var(--color-ink-soft)]">{card.description}</p>
                 </li>
               ))}
-            </ol>
+            </ul>
           </RevealChild>
 
           <RevealChild as="div">

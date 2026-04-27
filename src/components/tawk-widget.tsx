@@ -31,7 +31,7 @@ export function TawkWidget() {
   return (
     <Script
       id="tawk-to"
-      strategy="lazyOnload"
+      strategy="afterInteractive"
       dangerouslySetInnerHTML={{
         __html: `
           var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
