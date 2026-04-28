@@ -36,7 +36,7 @@ export function HeroTitle({ text, className }: { text: string; className?: strin
         <span
           key={`${word}-${index}`}
           aria-hidden="true"
-          className="inline-block overflow-hidden px-[0.04em] pt-[0.22em] pb-[0.18em] align-baseline"
+          className="inline-block overflow-hidden px-[0.04em] pt-[0.12em] pb-[0.06em] align-baseline"
         >
           <m.span
             className="inline-block"

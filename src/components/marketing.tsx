@@ -284,24 +284,25 @@ function Hero({
 }) {
   const overlay = (
     <>
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(18,20,16,0.45)_0%,rgba(18,20,16,0.20)_50%,rgba(18,20,16,0.05)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-[50%] bg-[linear-gradient(180deg,transparent_0%,rgba(12,14,11,0.40)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,247,230,0.08),transparent_42%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[60%] bg-[linear-gradient(180deg,transparent_0%,rgba(10,12,9,0.55)_100%)]" />
+      <div className="absolute inset-y-0 left-0 w-[55%] bg-[linear-gradient(90deg,rgba(10,12,9,0.35)_0%,transparent_100%)]" />
     </>
   );
 
   const content = (
-    <RevealStagger className="max-w-3xl space-y-6" stagger={0.12} delay={0.25}>
+    <RevealStagger className="max-w-xl space-y-4" stagger={0.12} delay={0.25}>
       <RevealChild as="span" className="block">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/88">{eyebrow}</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/90 [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">{eyebrow}</p>
       </RevealChild>
       <HeroTitle
         text={title}
-        className="font-[family-name:var(--font-display)] text-[2.6rem] leading-[1.02] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-6xl sm:leading-[0.98] lg:text-7xl lg:leading-[0.95]"
+        className="font-[family-name:var(--font-display)] text-[1.75rem] leading-[1.05] text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)] sm:text-4xl sm:leading-[1.0] lg:text-5xl lg:leading-[1.0]"
       />
-      <RevealChild as="div">
-        <p className="max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">{description}</p>
-      </RevealChild>
+      {description ? (
+        <RevealChild as="div">
+          <p className="max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">{description}</p>
+        </RevealChild>
+      ) : null}
       <RevealChild as="div" className="flex flex-wrap gap-3 pt-2">
         {actions.map((action) => {
           const link = (
@@ -340,7 +341,7 @@ function Hero({
 
   return (
     <HeroParallax src={image.src} alt={image.alt} overlay={overlay}>
-      <div className="relative mx-auto flex min-h-[72svh] max-w-7xl items-end px-4 py-18 sm:px-6 sm:py-24 lg:px-8 lg:py-28">
+      <div className="relative mx-auto flex min-h-[78svh] max-w-7xl items-end px-4 pt-24 pb-44 sm:min-h-[80svh] sm:px-6 sm:pt-28 sm:pb-36 lg:min-h-[82svh] lg:px-8 lg:py-28">
         {content}
       </div>
     </HeroParallax>

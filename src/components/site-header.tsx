@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
-import { m, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
-import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { AnimatePresence, m, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import { BOOKING_URL, imageManifest, navItems, siteSettings } from "@/lib/content/site";
 
@@ -23,14 +24,49 @@ const SCROLL_THRESHOLD = 80;
 export function SiteHeader() {
   const logo = getLogo();
   const { scrollY } = useScroll();
+  const pathname = usePathname();
 
   const logoHeight = useTransform(scrollY, [0, 140], [60, 46]);
   const paddingY = useTransform(scrollY, [0, 140], [14, 6]);
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     setIsScrolled(latest > SCROLL_THRESHOLD);
   });
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handlePointer = (event: MouseEvent | TouchEvent) => {
+      if (!menuRef.current) return;
+      const target = event.target as Node;
+      if (!menuRef.current.contains(target)) {
+        setMenuOpen(false);
+      }
+    };
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    document.addEventListener("mousedown", handlePointer);
+    document.addEventListener("touchstart", handlePointer, { passive: true });
+    document.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("mousedown", handlePointer);
+      document.removeEventListener("touchstart", handlePointer);
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   const headerClass = `fixed inset-x-0 top-0 z-40 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
     isScrolled
@@ -121,38 +157,59 @@ export function SiteHeader() {
           </a>
         </nav>
 
-        <details className="group lg:hidden">
-          <summary
-            className={`flex cursor-pointer list-none items-center justify-center rounded-full border p-3 shadow-sm transition-colors duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)] ${mobileBtnClass}`}
+        <div ref={menuRef} className="relative lg:hidden">
+          <button
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            onClick={() => setMenuOpen((open) => !open)}
+            className={`flex cursor-pointer items-center justify-center rounded-full border p-3 shadow-sm transition-colors duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-forest)] ${mobileBtnClass}`}
           >
-            <Menu className="h-5 w-5" />
-          </summary>
-          <div className="absolute right-4 top-[4.5rem] w-[min(22rem,calc(100vw-2rem))] rounded-3xl border border-black/10 bg-[var(--color-paper)] p-4 shadow-[0_24px_60px_rgba(20,20,20,0.16)]">
-            <div className="flex flex-col gap-2">
-              {navItems.map((item) =>
-                item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-2xl bg-[var(--color-accent)] px-4 py-3 text-sm font-medium text-[var(--color-ink)] hover:bg-[var(--color-accent-deep)] hover:text-white"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--color-ink)] hover:bg-black/5"
-                  >
-                    {item.label}
-                  </Link>
-                ),
-              )}
-            </div>
-          </div>
-        </details>
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+          <AnimatePresence>
+            {menuOpen ? (
+              <m.div
+                id="mobile-nav"
+                role="menu"
+                initial={{ opacity: 0, y: -8, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -8, scale: 0.98 }}
+                transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute right-0 top-[calc(100%+0.75rem)] w-[min(20rem,calc(100vw-2rem))] origin-top-right rounded-3xl border border-black/10 bg-[var(--color-paper)] p-3 shadow-[0_24px_60px_rgba(20,20,20,0.18)]"
+              >
+                <div className="flex flex-col gap-1">
+                  {navItems.map((item) =>
+                    item.external ? (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        role="menuitem"
+                        onClick={() => setMenuOpen(false)}
+                        className="rounded-2xl bg-[var(--color-accent)] px-4 py-3 text-center text-sm font-semibold text-[var(--color-ink)] transition hover:bg-[var(--color-accent-deep)] hover:text-white"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        role="menuitem"
+                        onClick={() => setMenuOpen(false)}
+                        className="rounded-2xl px-4 py-3 text-sm font-medium text-[var(--color-ink)] transition hover:bg-black/5"
+                      >
+                        {item.label}
+                      </Link>
+                    ),
+                  )}
+                </div>
+              </m.div>
+            ) : null}
+          </AnimatePresence>
+        </div>
       </m.div>
     </m.header>
   );

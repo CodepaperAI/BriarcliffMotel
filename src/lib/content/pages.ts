@@ -23,8 +23,8 @@ export const homePage: HomePageContent = {
   },
   hero: {
     eyebrow: "North Conway, NH",
-    title: "Welcome to the Briarcliff Motel in the White Mountains…",
-    description: "Your home away from home.",
+    title: "Your home away from home.",
+    description: "",
     imageId: "home-hero",
     imageIds: [
       "home-hero",
@@ -145,8 +145,7 @@ export const detailPages: Record<string, DetailPageContent> = {
     hero: {
       eyebrow: "Rooms & amenities",
       title: "A heated pool in our private backyard",
-      description:
-        "Beautiful White Mountains views — open every year, June 15 through Labor Day weekend.",
+      description: "",
       imageId: "rooms-pool",
       imageIds: [
         "rooms-pool",
@@ -293,8 +292,7 @@ export const detailPages: Record<string, DetailPageContent> = {
     hero: {
       eyebrow: "Special packages",
       title: "Special Packages",
-      description:
-        "We have seasonal packages available throughout the year. Please call to inquire about current promotions during your visit.",
+      description: "",
       imageId: "specials-hero",
       imageIds: [
         "specials-hero",
@@ -378,8 +376,7 @@ export const detailPages: Record<string, DetailPageContent> = {
     hero: {
       eyebrow: "About the area",
       title: "In the heart of the Mt. Washington Valley",
-      description:
-        "Briarcliff Motel is centrally located in the heart of the Mt. Washington Valley.",
+      description: "",
       imageId: "mount-washington",
       imageIds: [
         "mount-washington",
@@ -459,8 +456,7 @@ export const detailPages: Record<string, DetailPageContent> = {
     hero: {
       eyebrow: "Directions",
       title: "Getting here",
-      description:
-        "GPS address, route guidance, and airport distances to plan a simple arrival.",
+      description: "",
       imageId: "directions-hero",
       imageIds: [
         "directions-hero",

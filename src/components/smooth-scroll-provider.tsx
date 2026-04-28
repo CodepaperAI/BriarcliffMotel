@@ -6,7 +6,8 @@ import { useEffect, type ReactNode } from "react";
 export function SmoothScrollProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    if (prefersReducedMotion || isTouchDevice) {
       return;
     }
 

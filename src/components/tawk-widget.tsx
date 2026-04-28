@@ -35,6 +35,12 @@ export function TawkWidget() {
       dangerouslySetInnerHTML={{
         __html: `
           var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+          Tawk_API.customStyle = {
+            visibility: {
+              desktop: { position: 'br', xOffset: 16, yOffset: 16 },
+              mobile: { position: 'br', xOffset: 12, yOffset: 96 }
+            }
+          };
           (function(){
             var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
             s1.async = true;

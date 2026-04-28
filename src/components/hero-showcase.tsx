@@ -22,10 +22,15 @@ export function HeroShowcase({ slides, overlay, children, intervalMs = 7000 }: H
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement | null>(null);
   const [index, setIndex] = useState(0);
+  const [isTouch, setIsTouch] = useState(false);
   const slideCount = slides.length;
 
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const parallaxY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+
+  useEffect(() => {
+    setIsTouch(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
 
   useEffect(() => {
     if (slideCount <= 1 || reduce) return;
@@ -35,6 +40,8 @@ export function HeroShowcase({ slides, overlay, children, intervalMs = 7000 }: H
     return () => window.clearInterval(id);
   }, [slideCount, reduce, intervalMs]);
 
+  const disableParallax = reduce || isTouch;
+
   const handleDot = (next: number) => {
     setIndex(next);
   };
@@ -42,12 +49,12 @@ export function HeroShowcase({ slides, overlay, children, intervalMs = 7000 }: H
   return (
     <section
       ref={ref}
-      className="relative isolate min-h-[100svh] overflow-hidden"
+      className="relative isolate min-h-[88svh] overflow-hidden lg:min-h-[100svh]"
     >
       <div className="absolute inset-0">
         <m.div
           className="absolute inset-0"
-          style={reduce ? undefined : { y: parallaxY, willChange: "transform" }}
+          style={disableParallax ? undefined : { y: parallaxY, willChange: "transform" }}
         >
           {slides.map((slide, slideIndex) => {
             const isActive = slideIndex === index;
@@ -83,14 +90,14 @@ export function HeroShowcase({ slides, overlay, children, intervalMs = 7000 }: H
         {overlay}
       </div>
 
-      <div className="relative flex min-h-[100svh] flex-col">
+      <div className="relative flex min-h-[88svh] flex-col lg:min-h-[100svh]">
         <div className="flex-1" />
-        <div className="mx-auto flex w-full max-w-7xl items-end px-4 pb-32 sm:px-6 sm:pb-36 lg:px-8">
+        <div className="mx-auto flex w-full max-w-7xl items-end px-4 pb-48 sm:px-6 sm:pb-40 lg:px-8 lg:pb-36">
           {children}
         </div>
 
         {slideCount > 1 ? (
-          <div className="pointer-events-none absolute inset-x-0 bottom-8 z-10 mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 sm:px-6 lg:px-8">
+          <div className="pointer-events-none absolute inset-x-0 bottom-28 z-10 mx-auto flex max-w-7xl flex-col items-center gap-3 px-4 sm:bottom-10 sm:gap-4 sm:px-6 lg:px-8">
             <div className="pointer-events-auto flex items-center gap-3">
               {slides.map((slide, slideIndex) => {
                 const isActive = slideIndex === index;
