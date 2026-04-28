@@ -25,7 +25,14 @@ export function HeroParallax({ src, alt, overlay, children, className }: HeroPar
           className="absolute inset-0"
           style={reduce ? undefined : { y, willChange: "transform" }}
         >
-          <Image alt={alt} fill priority sizes="100vw" src={src} className="object-cover" />
+          <Image
+            alt={alt}
+            fill
+            priority
+            sizes="100vw"
+            src={src}
+            className="object-cover [filter:brightness(1.08)_saturate(1.04)]"
+          />
         </m.div>
         {overlay}
       </div>

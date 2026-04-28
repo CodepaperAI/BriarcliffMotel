@@ -6,24 +6,27 @@
   --font-body: "Public Sans", "Segoe UI", sans-serif;
   --color-paper: #f2f6f1;
   --color-paper-strong: #dfe9dc;
+  --color-cream: #faf6ee;
+  --color-cream-soft: #fffdf8;
   --color-sand: #e4d5bb;
+  --color-sand-soft: #f2eadb;
   --color-sand-deep: #d0b07a;
   --color-accent: #d9a24a;
   --color-accent-deep: #b27f2f;
   --color-accent-soft: #f5e0b0;
-  --color-forest: #1c3f36;
-  --color-forest-deep: #163129;
-  --color-ink: #1f231f;
-  --color-ink-soft: #3a423a;
-  --color-muted: #505952;
-  --bg-gradient-start: #f8fbf6;
-  --bg-gradient-end: #f2f6f1;
+  --color-forest: #2d3b2e;
+  --color-forest-deep: #213024;
+  --color-ink: #1f1a14;
+  --color-ink-soft: #2a241c;
+  --color-muted: #4a423a;
+  --bg-gradient-start: #fffdf8;
+  --bg-gradient-end: #faf6ee;
   --bg-halo: rgba(217, 162, 74, 0.18);
-  --surface-card: #ffffff;
-  --surface-glass: rgba(242, 246, 241, 0.92);
-  --surface-glass-deep: rgba(248, 251, 246, 0.96);
+  --surface-card: #fffdf8;
+  --surface-glass: rgba(255, 253, 248, 0.92);
+  --surface-glass-deep: rgba(255, 253, 248, 0.96);
   --section-alt: transparent;
-  --pill-primary-bg: rgba(28, 63, 54, 0.94);
+  --pill-primary-bg: rgba(45, 59, 46, 0.94);
   --pill-primary-text: #ffffff;
 }
 

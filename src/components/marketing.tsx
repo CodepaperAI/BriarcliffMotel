@@ -284,9 +284,9 @@ function Hero({
 }) {
   const overlay = (
     <>
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(18,20,16,0.78)_0%,rgba(18,20,16,0.48)_50%,rgba(18,20,16,0.28)_100%)]" />
-      <div className="absolute inset-x-0 bottom-0 h-[60%] bg-[linear-gradient(180deg,transparent_0%,rgba(12,14,11,0.64)_100%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(182,153,106,0.24),transparent_36%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(18,20,16,0.45)_0%,rgba(18,20,16,0.20)_50%,rgba(18,20,16,0.05)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-[50%] bg-[linear-gradient(180deg,transparent_0%,rgba(12,14,11,0.40)_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,247,230,0.08),transparent_42%)]" />
     </>
   );
 
@@ -297,7 +297,7 @@ function Hero({
       </RevealChild>
       <HeroTitle
         text={title}
-        className="font-[family-name:var(--font-display)] text-5xl leading-[0.95] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-6xl lg:text-7xl"
+        className="font-[family-name:var(--font-display)] text-[2.6rem] leading-[1.02] text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)] sm:text-6xl sm:leading-[0.98] lg:text-7xl lg:leading-[0.95]"
       />
       <RevealChild as="div">
         <p className="max-w-2xl text-lg leading-8 text-white/85 sm:text-xl">{description}</p>
@@ -364,7 +364,7 @@ function ImageCard({ card }: { card: HighlightCard }) {
             fill
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             src={image.src}
-            className={`${presentation.imageClassName ?? "object-cover"} transition duration-700 group-hover:scale-105`}
+            className={`${presentation.imageClassName ?? "object-cover"} [filter:brightness(1.08)_saturate(1.04)] transition duration-700 group-hover:scale-105`}
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_10%,rgba(19,22,20,0.28)_100%)]" />
         </div>
@@ -534,7 +534,7 @@ function CtaSection({
 }
 
 export function HomeTemplate({ page }: { page: HomePageContent }) {
-  const introImage = getImage("area-hero");
+  const introImage = getImage("briarcliff-sign");
   const amenitiesImage = getImage("rooms-pool");
   const amenityHighlights = homeAmenityHighlights;
 
@@ -544,15 +544,15 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
 
       <section className="mx-auto max-w-7xl px-4 py-18 sm:px-6 lg:px-8 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-          <div className="relative min-h-[25rem] overflow-hidden rounded-[2.25rem] shadow-[0_28px_80px_rgba(31,36,31,0.14)]">
+          <div className="relative min-h-[25rem] overflow-hidden rounded-[2.25rem] shadow-[0_28px_80px_rgba(31,36,31,0.14)] lg:min-h-[32rem]">
             <Image
               alt={introImage.alt}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               src={introImage.src}
-              className="object-cover"
+              className="object-cover object-[50%_28%] [filter:brightness(1.08)_saturate(1.04)]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_18%,rgba(18,21,18,0.42)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_38%,rgba(18,21,18,0.30)_100%)]" />
           </div>
 
           <div className="space-y-7">
@@ -571,21 +571,23 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
         </div>
       </section>
 
-      <FeatureStrip
-        eyebrow={page.roomsPreview.eyebrow}
-        title={page.roomsPreview.title}
-        description={page.roomsPreview.description}
-        imageSrc={getImage(page.roomsPreview.cards[0]?.imageId ?? "room-porch-view").src}
-        imageAlt={getImage(page.roomsPreview.cards[0]?.imageId ?? "room-porch-view").alt}
-        cards={page.roomsPreview.cards.map((card) => ({
-          title: card.title,
-          description: card.description,
-        }))}
-        action={page.roomsPreview.action}
-      />
+      <div className="bg-[var(--color-cream)]">
+        <FeatureStrip
+          eyebrow={page.roomsPreview.eyebrow}
+          title={page.roomsPreview.title}
+          description={page.roomsPreview.description}
+          imageSrc={getImage(page.roomsPreview.cards[0]?.imageId ?? "room-porch-view").src}
+          imageAlt={getImage(page.roomsPreview.cards[0]?.imageId ?? "room-porch-view").alt}
+          cards={page.roomsPreview.cards.map((card) => ({
+            title: card.title,
+            description: card.description,
+          }))}
+          action={page.roomsPreview.action}
+        />
+      </div>
 
       <section className="mx-auto max-w-7xl px-4 py-18 sm:px-6 lg:px-8 lg:py-24">
-        <div className="overflow-hidden rounded-[2.5rem] bg-[var(--color-ink)] text-white shadow-[0_32px_90px_rgba(21,24,21,0.22)]">
+        <div className="overflow-hidden rounded-[2.5rem] border border-[var(--color-ink)]/8 bg-[var(--color-cream-soft)] text-[var(--color-ink)] shadow-[0_28px_80px_rgba(31,36,31,0.10)]">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch">
             <div className="relative min-h-[24rem] lg:min-h-[36rem]">
               <Image
@@ -593,36 +595,36 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
                 fill
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 src={amenitiesImage.src}
-                className="object-cover"
+                className="object-cover [filter:brightness(1.08)_saturate(1.04)]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_10%,rgba(17,20,17,0.44)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,rgba(31,26,20,0.18)_100%)]" />
             </div>
 
-            <div className="relative flex flex-col justify-between gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+            <div className="relative flex flex-col justify-between gap-8 bg-[var(--color-cream-soft)] px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
               <div className="space-y-5">
                 <div className="flex flex-wrap items-center gap-3">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-white/85">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-forest)]">
                     {page.amenitiesPreview.eyebrow}
                   </p>
-                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent)]/55 bg-[var(--color-accent)]/18 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-soft)]">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-[var(--color-accent-deep)]/30 bg-[var(--color-accent)]/14 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--color-accent-deep)]">
                     <Waves className="h-3.5 w-3.5" />
                     Pool season · Jun 15 – Labor Day
                   </span>
                 </div>
-                <h2 className="font-[family-name:var(--font-display)] text-4xl leading-tight sm:text-5xl">
+                <h2 className="font-[family-name:var(--font-display)] text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl">
                   {page.amenitiesPreview.title}
                 </h2>
-                <p className="text-lg leading-8 text-white/88">{page.amenitiesPreview.description}</p>
+                <p className="text-lg leading-8 text-[var(--color-ink-soft)]">{page.amenitiesPreview.description}</p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-2">
                 {amenityHighlights.map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-[1.5rem] border border-white/12 bg-white/8 px-4 py-4 backdrop-blur-sm"
+                    className="rounded-[1.5rem] border border-[var(--color-ink)]/8 bg-[var(--color-sand-soft)] px-4 py-4"
                   >
-                    <p className="text-sm font-semibold text-white">{item.title}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/85">{item.description}</p>
+                    <p className="text-sm font-semibold text-[var(--color-ink)]">{item.title}</p>
+                    <p className="mt-2 text-sm leading-6 text-[var(--color-ink-soft)]">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -631,32 +633,36 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
         </div>
       </section>
 
-      <FeatureStrip
-        imageRight
-        eyebrow={page.areaPreview.eyebrow}
-        title={page.areaPreview.title}
-        description={page.areaPreview.description}
-        imageSrc={getImage(page.areaPreview.cards[0]?.imageId ?? "area-hero").src}
-        imageAlt={getImage(page.areaPreview.cards[0]?.imageId ?? "area-hero").alt}
-        cards={page.areaPreview.cards.map((card) => ({
-          title: card.title,
-          description: card.description,
-        }))}
-        action={page.areaPreview.action}
-      />
+      <div className="bg-[var(--color-sand-soft)]">
+        <FeatureStrip
+          imageRight
+          eyebrow={page.areaPreview.eyebrow}
+          title={page.areaPreview.title}
+          description={page.areaPreview.description}
+          imageSrc={getImage(page.areaPreview.cards[0]?.imageId ?? "area-hero").src}
+          imageAlt={getImage(page.areaPreview.cards[0]?.imageId ?? "area-hero").alt}
+          cards={page.areaPreview.cards.map((card) => ({
+            title: card.title,
+            description: card.description,
+          }))}
+          action={page.areaPreview.action}
+        />
+      </div>
 
-      <FeatureStrip
-        eyebrow={page.packagesPreview.eyebrow}
-        title={page.packagesPreview.title}
-        description={page.packagesPreview.description}
-        imageSrc={getImage(page.packagesPreview.cards[0]?.imageId ?? "specials-hero").src}
-        imageAlt={getImage(page.packagesPreview.cards[0]?.imageId ?? "specials-hero").alt}
-        cards={page.packagesPreview.cards.map((card) => ({
-          title: card.title,
-          description: card.description,
-        }))}
-        action={page.packagesPreview.action}
-      />
+      <div className="bg-[var(--color-cream-soft)]">
+        <FeatureStrip
+          eyebrow={page.packagesPreview.eyebrow}
+          title={page.packagesPreview.title}
+          description={page.packagesPreview.description}
+          imageSrc={getImage(page.packagesPreview.cards[0]?.imageId ?? "specials-hero").src}
+          imageAlt={getImage(page.packagesPreview.cards[0]?.imageId ?? "specials-hero").alt}
+          cards={page.packagesPreview.cards.map((card) => ({
+            title: card.title,
+            description: card.description,
+          }))}
+          action={page.packagesPreview.action}
+        />
+      </div>
 
       <CtaSection {...page.finalCta} />
     </>

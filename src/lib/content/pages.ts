@@ -29,8 +29,9 @@ export const homePage: HomePageContent = {
     imageIds: [
       "home-hero",
       "rooms-pool",
-      "area-hero",
+      "mount-washington",
       "room-king-teal",
+      "motel-entrance-classic",
       "wildcat",
     ],
     actions: [
@@ -298,7 +299,7 @@ export const detailPages: Record<string, DetailPageContent> = {
       imageIds: [
         "specials-hero",
         "rooms-pool",
-        "area-hero",
+        "mount-washington",
         "room-king-teal",
         "home-hero",
       ],
@@ -379,9 +380,8 @@ export const detailPages: Record<string, DetailPageContent> = {
       title: "In the heart of the Mt. Washington Valley",
       description:
         "Briarcliff Motel is centrally located in the heart of the Mt. Washington Valley.",
-      imageId: "area-hero",
+      imageId: "mount-washington",
       imageIds: [
-        "area-hero",
         "mount-washington",
         "wildcat",
         "attraction-cog-railway",
@@ -463,11 +463,10 @@ export const detailPages: Record<string, DetailPageContent> = {
         "GPS address, route guidance, and airport distances to plan a simple arrival.",
       imageId: "directions-hero",
       imageIds: [
-        "directions-aerial",
-        "area-hero",
-        "home-hero",
-        "mount-washington",
         "directions-hero",
+        "directions-aerial",
+        "mount-washington",
+        "lobby-classic",
       ],
       actions: [
         { label: "Book Now", href: BOOKING_URL, external: true, variant: "primary" },

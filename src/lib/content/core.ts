@@ -43,10 +43,24 @@ export const imageManifest: ImageAsset[] = [
   },
   {
     id: "home-hero",
+    src: "/briarcliff/images/motel-porch-summer.jpg",
+    alt: "Briarcliff Motel front porch with hanging flower baskets and a vibrant summer flower bed",
+    sourcePage: "home",
+    usage: ["home.hero", "seo.north-conway", "seo.white-mountains"],
+  },
+  {
+    id: "motel-entrance-classic",
     src: "/briarcliff/images/motel-entrance.jpg",
     alt: "Briarcliff Motel exterior in North Conway",
     sourcePage: "home",
-    usage: ["home.hero", "seo.north-conway", "seo.white-mountains"],
+    usage: ["home.hero"],
+  },
+  {
+    id: "briarcliff-sign",
+    src: "/briarcliff/images/briarcliff-sign.jpg",
+    alt: "Briarcliff Motel roadside sign with AAA Approved badge framed by orange daylilies",
+    sourcePage: "home",
+    usage: ["home.intro", "seo.north-conway"],
   },
   {
     id: "rooms-pool",
@@ -190,8 +204,15 @@ export const imageManifest: ImageAsset[] = [
   },
   {
     id: "directions-hero",
+    src: "/briarcliff/images/motel-porch-summer.jpg",
+    alt: "Briarcliff Motel front porch and lobby entrance with summer flowers",
+    sourcePage: "directions",
+    usage: ["directions.hero"],
+  },
+  {
+    id: "lobby-classic",
     src: "/briarcliff/images/lobby.jpg",
-    alt: "Briarcliff Motel lobby",
+    alt: "Briarcliff Motel lobby interior",
     sourcePage: "directions",
     usage: ["directions.hero"],
   },

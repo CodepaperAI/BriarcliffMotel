@@ -17,7 +17,7 @@ export const seoLandingPages: SeoLandingPageContent[] = [
       description:
         "Renovated rooms, mountain views, and easy access to the Valley's busiest attractions.",
       imageId: "home-hero",
-      imageIds: ["home-hero", "rooms-pool", "area-hero", "room-king-teal", "wildcat"],
+      imageIds: ["home-hero", "rooms-pool", "mount-washington", "room-king-teal", "wildcat"],
       actions: [
         { label: "Book Now", href: BOOKING_URL, external: true, variant: "primary" },
         { label: "See Rooms", href: "/rooms-amenities", variant: "secondary" },
@@ -71,15 +71,15 @@ export const seoLandingPages: SeoLandingPageContent[] = [
       description:
         "White Mountains lodging from North Conway — renovated rooms, mountain views, a heated pool, and four-season access across the Valley.",
       path: "/lodging-near-white-mountains",
-      imageId: "area-hero",
+      imageId: "mount-washington",
     },
     hero: {
       eyebrow: "White Mountains lodging",
       title: "A White Mountains base for busy days and quiet evenings",
       description:
         "North Conway access, mountain views, and renovated rooms — affordable lodging with real mountain character.",
-      imageId: "area-hero",
-      imageIds: ["area-hero", "mount-washington", "wildcat", "home-hero", "rooms-pool"],
+      imageId: "mount-washington",
+      imageIds: ["mount-washington", "wildcat", "home-hero", "rooms-pool"],
       actions: [
         { label: "Book Now", href: BOOKING_URL, external: true, variant: "primary" },
         { label: "Explore the Area", href: "/about-the-area", variant: "secondary" },
@@ -265,7 +265,7 @@ export const seoLandingPages: SeoLandingPageContent[] = [
       description:
         "North Conway stays with mountain views, renovated rooms, and quick access to dining and shopping.",
       imageId: "room-table",
-      imageIds: ["area-hero", "mount-washington", "attraction-cog-railway", "room-king-teal", "home-hero"],
+      imageIds: ["mount-washington", "attraction-cog-railway", "room-king-teal", "home-hero"],
       actions: [
         { label: "Book Now", href: BOOKING_URL, external: true, variant: "primary" },
         { label: "Explore the Area", href: "/about-the-area", variant: "secondary" },
@@ -327,7 +327,7 @@ export const seoLandingPages: SeoLandingPageContent[] = [
       description:
         "Mountain views, porch-style rooms, and central North Conway access — the Valley at peak color.",
       imageId: "directions-aerial",
-      imageIds: ["directions-aerial", "attraction-cog-railway", "attraction-conway-scenic", "area-hero", "mount-washington"],
+      imageIds: ["directions-aerial", "attraction-cog-railway", "attraction-conway-scenic", "mount-washington"],
       actions: [
         { label: "Book Now", href: BOOKING_URL, external: true, variant: "primary" },
         { label: "Get Directions", href: "/directions", variant: "secondary" },

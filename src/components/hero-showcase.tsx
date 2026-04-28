@@ -74,7 +74,7 @@ export function HeroShowcase({ slides, overlay, children, intervalMs = 7000 }: H
                   sizes="100vw"
                   src={slide.src}
                   quality={88}
-                  className="object-cover"
+                  className="object-cover [filter:brightness(1.08)_saturate(1.04)]"
                 />
               </m.div>
             );

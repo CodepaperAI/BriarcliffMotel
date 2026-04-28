@@ -52,7 +52,7 @@ export function SiteHeader() {
   const mobileBtnClass = isScrolled
     ? "border-black/10 bg-[var(--surface-card)] text-[var(--color-ink)]"
     : "border-white/40 bg-black/30 text-white backdrop-blur-md";
-  const scrimClass = `pointer-events-none absolute inset-x-0 top-0 h-64 bg-[linear-gradient(180deg,rgba(6,8,6,0.85)_0%,rgba(6,8,6,0.78)_45%,rgba(6,8,6,0.45)_75%,transparent_100%)] transition-opacity duration-500 ${
+  const scrimClass = `pointer-events-none absolute inset-x-0 top-0 h-48 bg-[linear-gradient(180deg,rgba(6,8,6,0.45)_0%,rgba(6,8,6,0.30)_45%,rgba(6,8,6,0.10)_75%,transparent_100%)] transition-opacity duration-500 ${
     isScrolled ? "opacity-0" : "opacity-100"
   }`;
 
