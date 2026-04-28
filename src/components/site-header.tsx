@@ -7,7 +7,6 @@ import { m, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { useState } from "react";
 
 import { BOOKING_URL, imageManifest, navItems, siteSettings } from "@/lib/content/site";
-import { headerImagePresentation } from "@/components/site-header.presentation";
 
 function headerLinkClass() {
   return "inline-flex items-center justify-center rounded-full border border-[var(--color-accent-deep)]/10 bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-[var(--color-ink)] shadow-[0_10px_24px_rgba(199,154,82,0.28)] transition hover:bg-[var(--color-accent-deep)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)]";
@@ -23,10 +22,9 @@ const SCROLL_THRESHOLD = 80;
 
 export function SiteHeader() {
   const logo = getLogo();
-  const presentation = headerImagePresentation;
   const { scrollY } = useScroll();
 
-  const logoSize = useTransform(scrollY, [0, 140], [48, 36]);
+  const logoHeight = useTransform(scrollY, [0, 140], [60, 46]);
   const paddingY = useTransform(scrollY, [0, 140], [14, 6]);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,17 +66,16 @@ export function SiteHeader() {
       >
         <Link className="flex min-w-0 items-center gap-3" href="/">
           <m.div
-            className={`relative overflow-hidden rounded-2xl border border-black/10 shadow-sm ${
-              presentation.frameClassName ?? "bg-[var(--surface-card)]"
-            }`}
-            style={{ width: logoSize, height: logoSize }}
+            className="relative flex shrink-0 items-center"
+            style={{ height: logoHeight }}
           >
             <Image
               alt={logo.alt}
-              fill
-              sizes="48px"
+              width={260}
+              height={96}
+              priority
               src={logo.src}
-              className={presentation.imageClassName ?? "object-cover"}
+              className="h-full w-auto"
             />
           </m.div>
           <div className="min-w-0">
