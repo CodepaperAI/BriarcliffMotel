@@ -9,6 +9,7 @@ function findImage(imageId: string) {
 
 export function buildMetadata(config: PageMeta): Metadata {
   const image = findImage(config.imageId);
+  const url = `${SITE_URL}${config.path}`;
 
   return {
     title: config.title,
@@ -19,7 +20,7 @@ export function buildMetadata(config: PageMeta): Metadata {
     openGraph: {
       title: config.title,
       description: config.description,
-      url: `${SITE_URL}${config.path}`,
+      url,
       siteName: siteSettings.name,
       locale: "en_US",
       type: "website",
@@ -27,6 +28,8 @@ export function buildMetadata(config: PageMeta): Metadata {
         ? [
             {
               url: image.src,
+              width: 1200,
+              height: 630,
               alt: image.alt,
             },
           ]
@@ -37,6 +40,16 @@ export function buildMetadata(config: PageMeta): Metadata {
       title: config.title,
       description: config.description,
       images: image ? [image.src] : undefined,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 }

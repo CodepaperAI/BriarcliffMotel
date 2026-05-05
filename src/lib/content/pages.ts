@@ -48,7 +48,7 @@ export const homePage: HomePageContent = {
       "Short distance from 100+ premium outlet stores",
       "Minutes to great restaurants and ski areas",
       "Centrally located to White Mountain attractions",
-      "Open 24/7 · front desk staffed 8 AM – 10 PM",
+      "Front desk hours: 8 AM – 10 PM daily",
       "Clean, comfortable, and always affordable — children welcome",
     ],
   },

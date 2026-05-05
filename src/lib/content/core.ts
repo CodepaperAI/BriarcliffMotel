@@ -30,6 +30,7 @@ export const navItems: NavItem[] = [
   { label: "Special Packages", href: "/special-packages" },
   { label: "About the Area", href: "/about-the-area" },
   { label: "Directions", href: "/directions" },
+  { label: "Contact", href: "/contact" },
   { label: "Book Now", href: BOOKING_URL, external: true },
 ];
 
@@ -714,4 +715,7 @@ export const bookingCta: CtaBlock = {
   },
 };
 
-export const footerLinks = navItems.filter((item) => item.label !== "Book Now");
+export const footerLinks: NavItem[] = [
+  ...navItems.filter((item) => item.label !== "Book Now"),
+  { label: "Journal", href: "/blog" },
+];

@@ -444,6 +444,7 @@ export const allRoutePaths = [
   "/special-packages",
   "/about-the-area",
   "/directions",
+  "/contact",
   ...seoLandingPages.map((page) => page.meta.path),
 ];
 

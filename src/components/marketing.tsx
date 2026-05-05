@@ -34,6 +34,7 @@ import { HeroTitle } from "@/components/hero-title";
 import { HorizontalScroller } from "@/components/horizontal-scroller";
 import { MagneticButton } from "@/components/magnetic-button";
 import { MotionFeatures, Reveal, RevealChild, RevealStagger } from "@/components/reveal";
+import { breadcrumbJsonLd, jsonLdScriptProps } from "@/lib/structured-data";
 import {
   BOOKING_URL,
   footerLinks,
@@ -539,8 +540,11 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
   const amenitiesImage = getImage("rooms-pool");
   const amenityHighlights = homeAmenityHighlights;
 
+  const breadcrumbs = breadcrumbJsonLd([{ name: "Home", path: "/" }]);
+
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
       <Hero {...page.hero} />
 
       <section className="mx-auto max-w-7xl px-4 py-18 sm:px-6 lg:px-8 lg:py-24">
@@ -671,8 +675,13 @@ export function HomeTemplate({ page }: { page: HomePageContent }) {
 }
 
 export function DetailPageTemplate({ page }: { page: DetailPageContent }) {
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: page.meta.title, path: page.meta.path },
+  ]);
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
       <Hero {...page.hero} />
 
       <section className="mx-auto max-w-7xl px-4 py-18 sm:px-6 lg:px-8 lg:py-24">
@@ -725,8 +734,13 @@ export function DetailPageTemplate({ page }: { page: DetailPageContent }) {
 }
 
 export function SeoPageTemplate({ page }: { page: SeoLandingPageContent }) {
+  const breadcrumbs = breadcrumbJsonLd([
+    { name: "Home", path: "/" },
+    { name: page.meta.title, path: page.meta.path },
+  ]);
   return (
     <>
+      <script {...jsonLdScriptProps(breadcrumbs)} />
       <Hero {...page.hero} />
 
       <section className="mx-auto max-w-7xl px-4 py-18 sm:px-6 lg:px-8 lg:py-24">
