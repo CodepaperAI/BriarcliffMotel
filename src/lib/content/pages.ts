@@ -110,7 +110,7 @@ export const homePage: HomePageContent = {
     eyebrow: "Special packages",
     title: "Real savings, no fine-print gimmicks",
     description:
-      "Seasonal promos, an off-season three-for-two offer, and a local dining discount.",
+      "Seasonal promos, an off-season three-for-two offer, and Settlers Green shopping perks.",
     cards: [
       {
         title: "Seasonal promotions",
@@ -119,12 +119,12 @@ export const homePage: HomePageContent = {
       },
       {
         title: "Stay 2, get the 3rd free",
-        description: "Off-season, two-queen room with balcony, November through May (excludes holidays).",
+        description: "Off-season, two-queen room with balcony, November through May 15 (excludes holidays).",
         imageId: "home-hero",
       },
       {
-        title: "Dining & shopping extras",
-        description: "10% off at Priscilla's Country Kitchen; Settlers Green VIP coupon books at the desk.",
+        title: "Shopping extras",
+        description: "Settlers Green VIP coupon books waiting at the front desk.",
         imageId: "room-porch-interior",
       },
     ],
@@ -285,7 +285,7 @@ export const detailPages: Record<string, DetailPageContent> = {
     meta: {
       title: "Special Packages | Briarcliff Motel North Conway",
       description:
-        "Seasonal promotions, an off-season stay-2-get-3rd-free offer, a 10% Priscilla's Country Kitchen discount, and Settlers Green coupon books.",
+        "Seasonal promotions, an off-season stay-2-get-3rd-free offer running November through May 15, and Settlers Green coupon books.",
       path: "/special-packages",
       imageId: "specials-hero",
     },
@@ -310,7 +310,7 @@ export const detailPages: Record<string, DetailPageContent> = {
       eyebrow: "Current offers",
       title: "Stay 2 nights — 3rd night free",
       description:
-        "We have seasonal packages available throughout the year. Please call to inquire if there are any promotions going on during your visit.",
+        "Our off-season Stay 2, Get the 3rd Night Free runs November through May 15 (excluding holiday and vacation periods). Call the front desk to ask about other seasonal promotions during your visit.",
     },
     featureSections: [
       {
@@ -325,11 +325,11 @@ export const detailPages: Record<string, DetailPageContent> = {
         eyebrow: "Featured offer",
         title: "STAY 2 NIGHTS — 3rd NIGHT FREE",
         description:
-          "Off season only with 2 queen beds and balcony. November through May (except holiday or vacation).",
+          "Off season only with 2 queen beds and balcony. November through May 15 (except holiday or vacation).",
         bullets: [
           "Off season only",
           "2 queen beds and balcony",
-          "Nov – May",
+          "Nov – May 15",
           "Except holiday or vacation periods",
         ],
         imageId: "specials-hero",
@@ -339,15 +339,8 @@ export const detailPages: Record<string, DetailPageContent> = {
       {
         eyebrow: "Extras around town",
         title: "Pair your stay with local perks",
-        description: "Two partners we're proud of — right on Main Street.",
+        description: "Settlers Green coupons and a quick call for seasonal deals — right off Main Street.",
         cards: [
-          {
-            title: "Priscilla's Country Kitchen",
-            description: "10% off dining, two minutes from the front desk.",
-            icon: "utensils",
-            href: "https://www.priscillaseatery.com/",
-            external: true,
-          },
           {
             title: "Settlers Green extras",
             description: "Pick up VIP coupon books at the front desk for your shopping day.",

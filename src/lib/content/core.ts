@@ -470,13 +470,8 @@ export const packageHighlights: FeatureItem[] = [
   },
   {
     title: "Stay 2 nights — 3rd night free",
-    description: "Off season only with 2 queen beds and balcony. Nov – May (except holiday or vacation).",
+    description: "Off season only with 2 queen beds and balcony. Nov – May 15 (except holiday or vacation).",
     icon: "ticket",
-  },
-  {
-    title: "10% off at Priscilla's",
-    description: "Dining discount at Priscilla's Country Kitchen — two minutes away.",
-    icon: "utensils",
   },
   {
     title: "Settlers Green coupons",
